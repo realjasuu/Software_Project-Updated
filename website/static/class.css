@@ -1,0 +1,21 @@
+.bg-blue {
+    background-color: blue, red, white, yellow;
+}
+
+.bg-body-tertiary{
+    background-color: blue, red, white, yellow, black;
+}
+
+:root {
+    --primary-color: #FF0000;
+}
+
+.primary {
+    color: var(--primary-color);
+}
+
+.login .sign_up-btn,
+.login .cart-btn,
+.login .home-btn{
+    display: none;
+}

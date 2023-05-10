@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="http://127.0.0.1:5000/static/wheel.png" alt="" width="35" height="35"
+    class="d-inline-block allign-text-top">
+          Mozar MotorParts
+        </a>
+      </div>
+    </nav>
+    <nav class="navbar navbar-expand-lg bg-body-black">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="nav-item nav-link" id="home" href="/">Home</a>
+          </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="nav-item nav-link" id="login" href="/login">Login</a>
+          </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign-Up</a>
+          </ul>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <a class="fas fa-shopping-cart" id="cart" href="/cart" style="color: #161717;"></i></a>
+          </ul>
+        </div>
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          {% if category == 'error' %}
+          <div class="alert  alert-danger alter-dismissable fade show" role="alert"> 
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          {% else %}
+          <div class=" alert  alert-success alter-dismissable fade show" role="alert"> 
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+        
+      </div>
+    </nav>
+    
+    
+    <div class="container">{% block content %} {% endblock %}</div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+      ></script>
+      <div class="container-fluid bg-primary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-light mb-4">Get In Touch</h4>
+                <p class="mb-2"><i class="fa fa-map-marker text-white mr-3"></i>Borromeo Street, Surigao City</p>
+                <p class="mb-2"><i class="fa fa-phone text-white mr-3"></i>+xxx xxx xxxxx</p>
+                <p><i class="fa fa-envelope text-white mr-3"></i>student_practice_mozar@mailsnsu.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-uppercase text-light mb-4">Usefull Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Private Policy</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Term & Conditions</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Return & Refund</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Help & FQAs</a>
+                </div>
+            </div>
+    
+  </body>
+</html>
